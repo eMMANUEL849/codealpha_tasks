@@ -1,0 +1,53 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <p class="text-uppercase fw-semibold text-secondary mb-1">Featured collection</p>
+        <h2 class="fw-bold">Popular Products</h2>
+    </div>
+    <div class="text-muted">Shop the latest items in one place.</div>
+</div>
+
+<div class="row g-4">
+    {% for product in products %}
+        <div class="col-md-4" data-animate="fade-up">
+            <div class="card card-shadow h-100 overflow-hidden border-0 card-animated">
+                <div class="position-relative">
+                    {% if product.image %}
+                        <img src="{{ product.image }}" class="card-img-top" style="height: 260px; object-fit: cover;">
+                    {% else %}
+                        <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 260px;">
+                            No Image Available
+                        </div>
+                    {% endif %}
+
+                    <span class="badge bg-warning text-dark product-badge">{{ product.stock|yesno:'In Stock,Out of Stock' }}</span>
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title fw-bold mb-2">{{ product.name }}</h5>
+                    <p class="card-text text-muted mb-3">{{ product.description|truncatewords:20 }}</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="h4 text-success mb-0">£{{ product.price }}</span>
+                        <small class="text-muted">{{ product.stock }} left</small>
+                    </div>
+                </div>
+
+                <div class="card-footer bg-white border-0 pb-4 px-4">
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'product_detail' product.id %}" class="btn btn-dark btn-pill btn-animate">View Details</a>
+                        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-outline-success btn-pill btn-animate">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">No products available at the moment.</div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %} 
