@@ -1,0 +1,104 @@
+body {
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+.navbar-brand {
+    letter-spacing: .08em;
+}
+
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    color: #f8fafc;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .btn {
+    min-width: 180px;
+}
+
+.card-shadow {
+    box-shadow: 0 24px 75px rgba(15, 23, 42, 0.08);
+}
+
+.product-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+}
+
+.form-control,
+.form-select {
+    border-radius: 0.85rem;
+    padding: 1rem 1rem;
+}
+
+.btn-pill {
+    border-radius: 999px;
+}
+
+.card-animated {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-animated:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 28px 90px rgba(15, 23, 42, 0.18);
+}
+
+[data-animate] {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: var(--delay, 0ms);
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.btn-animate {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-animate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+.pulse {
+    animation: pulse-button 0.35s ease;
+}
+
+@keyframes pulse-button {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.96); }
+    100% { transform: scale(1); }
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent 22%), radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.18), transparent 20%);
+    pointer-events: none;
+}
+
+.navbar-scrolled {
+    background: rgba(15, 23, 42, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+.floating-highlight {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+footer { background: #111827; }
