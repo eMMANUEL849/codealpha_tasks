@@ -1,29 +1,57 @@
-# CodeAlpha E-Commerce Store
+# CodeAlpha Internship Tasks
 
-This repository contains the CodeAlpha E-Commerce Django project nested in the
-`CodeAlpha_E-Commerce Store/` folder.
+This repository contains all projects completed during the **CodeAlpha** internship programme.
 
-Quickstart
+---
+
+## Projects
+
+### 1. E-Commerce Store
+**Folder:** [`CodeAlpha_E-Commerce Store/`](CodeAlpha_E-Commerce%20Store/)
+
+A Django-based e-commerce web application.
+
+**Quickstart**
 ```bash
-git clone https://github.com/eMMANUEL849/codealpha_tasks.git
-cd codealpha_tasks/CodeAlpha_E-Commerce\ Store
+cd "CodeAlpha_E-Commerce Store"
 python -m venv venv
-# Windows:
-venv\Scripts\activate
-# macOS/Linux:
-source venv/bin/activate
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # macOS/Linux
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
 
-Project structure (important paths)
-- `CodeAlpha_E-Commerce Store/`
-  - `products/` — product images and assets
-  - `store/` — Django app
-  - `storeproject/` — Django project settings
-  - `manage.py`, `requirements.txt`
+---
 
-Notes
-- `venv/` and `db.sqlite3` are ignored via `.gitignore`.
-- If you want the project at repository root instead of the nested folder, let me know.
+### 2. Social Media Platform
+**Folder:** [`CodeAlpha_Social-Media-Platform/`](CodeAlpha_Social-Media-Platform/)
+
+A full-stack mini social media app built with Django and vanilla JavaScript.
+
+**Features:** User profiles · Posts & images · Likes · Comments · Follow system · Real-time notifications (toast pop-ups + bell badge)
+
+**Quickstart**
+```bash
+cd CodeAlpha_Social-Media-Platform
+pip install django pillow
+python manage.py migrate
+python manage.py runserver
+```
+
+Open **http://127.0.0.1:8000** — register an account or use the demo accounts (`alice`, `bob`, `carol` — password: `password123`).
+
+---
+
+## Tech Stack
+
+| Task | Backend | Frontend | Database |
+|---|---|---|---|
+| E-Commerce Store | Django | HTML/CSS/JS | SQLite |
+| Social Media Platform | Django 6 | HTML/CSS/Vanilla JS | SQLite |
+
+---
+
+## Authors
+
+- ** Oluwalaanumi Emmanuel Adesanya **
