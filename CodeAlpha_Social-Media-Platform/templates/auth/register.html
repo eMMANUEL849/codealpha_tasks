@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Join SocialSpace{% endblock %}
+{% block content %}
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-logo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary)">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+            </svg>
+            <h1>SocialSpace</h1>
+        </div>
+        <p class="auth-subtitle">Join millions of people sharing moments</p>
+
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" value="{{ form.first_name.value|default:'' }}" placeholder="First name">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" value="{{ form.last_name.value|default:'' }}" placeholder="Last name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" value="{{ form.username.value|default:'' }}" placeholder="Choose a username" required>
+                {% if form.username.errors %}<span class="field-error">{{ form.username.errors.0 }}</span>{% endif %}
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" value="{{ form.email.value|default:'' }}" placeholder="your@email.com" required>
+                {% if form.email.errors %}<span class="field-error">{{ form.email.errors.0 }}</span>{% endif %}
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password1" placeholder="Create a password" required>
+                {% if form.password1.errors %}<span class="field-error">{{ form.password1.errors.0 }}</span>{% endif %}
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="password2" placeholder="Confirm your password" required>
+                {% if form.password2.errors %}<span class="field-error">{{ form.password2.errors.0 }}</span>{% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+        </form>
+
+        <div class="auth-footer">
+            Already have an account? <a href="{% url 'login' %}">Sign in</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
